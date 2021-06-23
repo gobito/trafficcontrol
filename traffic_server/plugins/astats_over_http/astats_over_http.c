@@ -346,7 +346,8 @@ static int getSpeed(char *inf, char *buffer, int bufferSize) {
 	str = getFile(b, buffer, bufferSize);
 	if (str && strstr(str, "up"))
 	{
-		snprintf(b, sizeof(b), "/sys/class/net/%s/speed", inf);
+		//snprintf(b, sizeof(b), "/sys/class/net/%s/speed", inf);
+		snprintf(b, sizeof(b), "/etc/trafficserver/net_speed", inf);
 		str = getFile(b, buffer, bufferSize);
 		speed = strtol(str, 0, 10);
 	}
